@@ -1,0 +1,11 @@
+[Unit]
+Description=Iticoin daemon serivce
+After=network.target
+
+[Service]
+Type=simple
+User=iticoin
+ExecStart=/opt/iticoin/iticoind
+
+[Install]
+WantedBy=multi-user.target

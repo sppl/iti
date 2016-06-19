@@ -1,0 +1,5 @@
+iticoin-qt usr/bin
+share/pixmaps/iticoin32.xpm usr/share/pixmaps
+share/pixmaps/iticoin80.xpm usr/share/pixmaps
+debian/iticoin-qt.desktop usr/share/applications
+debian/iticoin-qt.protocol usr/share/kde4/services/

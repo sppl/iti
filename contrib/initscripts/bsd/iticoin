@@ -1,0 +1,68 @@
+#!/bin/sh
+
+# PROVIDE: iticoin
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# iticoin_enable (bool): Set to NO by default. Set this variable to YES if you want to enable iticoin service.
+# iticoin_config (path): Set to /usr/local/etc/iticoin.conf by default.
+# iticoin_user:  The user account iticoin daemon runs as. It uses 'root' user by default.
+# iticoin_group: The group account iticoin daemon runs as. It uses 'wheel' group by default.
+# iticoin_datadir (str): Default to "/var/db/iticoin". Base data directory.
+
+. /etc/rc.subr
+
+name=iticoin
+rcvar=iticoin_enable
+
+: ${iticoin_enable:=NO}
+: ${iticoin_config=/usr/local/etc/iticoin.conf}
+: ${iticoin_datadir=/var/db/iticoin}
+: ${iticoin_user="root"}
+: ${iticoin_group="wheel"}
+
+required_files=${iticoin_config}
+command=/usr/local/bin/iticoind
+iticoin_chdir=${iticoin_datadir}
+pidfile="${iticoin_datadir}/iticoind.pid"
+stop_cmd=iticoin_stop
+command_args="-conf=${iticoin_config} -datadir=${iticoin_datadir} -daemon -pid=${pidfile}"
+start_precmd="${name}_prestart"
+
+iticoin_create_datadir()
+{
+	echo "Creating data directory"
+	eval mkdir -p ${iticoin_datadir}
+	[ $? -eq 0 ] && chown -R ${iticoin_user}:${iticoin_group} ${iticoin_datadir}
+}
+
+iticoin_prestart()
+{
+	if [ ! -d "${iticoin_datadir}/." ]; then
+		iticoin_create_datadir || return 1
+	fi
+}
+
+iticoin_requirepidfile()
+{
+	if [ ! "0`check_pidfile ${pidfile} ${command}`" -gt 1 ]; then
+		echo "${name} not running? (check $pidfile)."
+		exit 1
+	fi
+}
+
+iticoin_stop()
+{
+    iticoin_requirepidfile
+
+	echo "Stopping ${name}."
+	eval ${command} -conf=${iticoin_config} -datadir=${iticoin_datadir} stop
+	wait_for_pids ${rc_pid}
+}
+
+load_rc_config $name
+run_rc_command "$1"

@@ -1,0 +1,2 @@
+debian/bin/iticoind usr/bin
+src/iticoind usr/lib/iticoin

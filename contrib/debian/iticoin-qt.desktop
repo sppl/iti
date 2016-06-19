@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=iTiCoin
+Comment=iTiCoin P2P Cryptocurrency
+Comment[ru]=iTiCoin, P2P криптовалюта
+Comment[fr]=iTiCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=iTiCoin, eşten eşe kriptografik sanal para birimi
+Exec=/usr/bin/iticoin-qt
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/iticoin80.xpm
+MimeType=x-scheme-handler/iticoin;
+Categories=Office;
