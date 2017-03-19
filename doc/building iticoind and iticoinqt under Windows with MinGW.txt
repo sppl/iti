@@ -143,7 +143,7 @@ mingw32-make
 Будем хранить исходники в папке C:\MyProjects
 
 3.1 Скачиваем исходники
--Зайдите на сайт https://github.com/iticoin-project/iticoin
+-Зайдите на сайт https://github.com/sppl/iti
 -Нажмите Download ZIP
 -Распакуйте iticoin-master.zip в C:\MyProjects
 
