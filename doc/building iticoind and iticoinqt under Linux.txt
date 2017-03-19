@@ -20,7 +20,7 @@ openSUSE(проверено на версии 13.2):
 
 После того, как установка завершалась, можно клонировать Iticoin репозитарий
 
- git clone https://github.com/iticoin-project/iticoin.git
+ git clone https://github.com/sppl/iti/iticoin.git
 
 и наконец, скомпилировать свой клиент
 
