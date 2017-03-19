@@ -130,7 +130,7 @@ libboost_system-gcc-mt-s-1_57.a
 libboost_thread_pthread-gcc-mt-s-1_57.a
 
 2.4 LevelDB
--Зайдите на сайт https://github.com/iticoin-project/iticoin
+-Зайдите на сайт https://github.com/sppl/iti
 -Нажмите Download ZIP
 -Распакуйте iticoin-master.zip в C:\Android
 -Откройте MinGW shell (C:\MinGW\msys\1.0\msys.bat) и выполните следующий код:
