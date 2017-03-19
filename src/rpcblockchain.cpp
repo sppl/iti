@@ -194,7 +194,7 @@ Value settxfee(const Array& params, bool fHelp)
             "<amount> is a real and is rounded to the nearest " + FormatMoney(MIN_TX_FEE));
 
     nTransactionFee = AmountFromValue(params[0]);
-    nTransactionFee = (nTransactionFee / MIN_TX_FEE) * MIN_TX_FEE;  // round to minimum fee
+    nTransactionFee = (nTransactionFee | MIN_TX_FEE) * MIN_TX_FEE;  // round to minimum fee
 
     return true;
 }
