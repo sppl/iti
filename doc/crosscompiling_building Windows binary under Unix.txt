@@ -122,7 +122,7 @@ Using Qt version 5.5.1 in /home/<ваше имя>/mxe/usr/i686-w64-mingw32.stati
 -Перейдите в домашнюю папку
 -Откройте терминал
 
- git clone https://github.com/iticoin-project/iticoin.git
+ git clone https://github.com/sppl/iti/iticoin.git
 
 3.2 Собираем iticoind
 -Откройте файл makefile.mingw в текстовом редакторе.(При написании инструкции использовался Pluma 1.8.1)
