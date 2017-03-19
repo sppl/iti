@@ -95,7 +95,7 @@ buildqt64.bat
 (Если у вас английская версия, то это выглядит так: Tools->Options->Text Editor->All Languages->Tabs и поставьте флажок "Insert Spaces" вместо "Keep Tabs".)
 
 3.1 Скачиваем исходники
--Зайдите на сайт https://github.com/iticoin-project/iticoin
+-Зайдите на сайт https://github.com/sppl/iti
 -Нажмите Download ZIP
 -Распакуйте iticoin-master.zip в C:\MyProjects
 -переименуйте iticoin-master в Iticoin
