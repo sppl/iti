@@ -111,6 +111,11 @@ CBlock* CreateNewBlock(CWallet* pwallet, CTransaction *txCoinStake)
     if (!pblock.get())
         return NULL;
 
+    if (fProofOfStake && nBestHeight < LAST_POW_BLOCK)
+        return NULL;
+    if (!fProofOfStake && nBestHeight >= LAST_POW_BLOCK)
+        return NULL;
+
     // Create coinbase tx
     CTransaction txCoinBase;
     txCoinBase.vin.resize(1);

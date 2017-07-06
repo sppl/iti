@@ -902,12 +902,12 @@ bool AppInit2()
         if (!pwalletMain->SetAddressBookName(pwalletMain->vchDefaultKey.GetID(), ""))
             strErrors << _("Cannot write default address") << "\n";
 
-        //CMalleableKeyView keyView = pwalletMain->GenerateNewMalleableKey();
-        //CMalleableKey mKey;
-        //if (!pwalletMain->GetMalleableKey(keyView, mKey))
-        //    strErrors << _("Unable to generate new malleable key");
-        //if (!pwalletMain->SetAddressBookName(CBitcoinAddress(keyView.GetMalleablePubKey()), ""))
-        //    strErrors << _("Cannot write default address") << "\n";
+        CMalleableKeyView keyView = pwalletMain->GenerateNewMalleableKey();
+        CMalleableKey mKey;
+        if (!pwalletMain->GetMalleableKey(keyView, mKey))
+            strErrors << _("Unable to generate new malleable key");
+        if (!pwalletMain->SetAddressBookName(CBitcoinAddress(keyView.GetMalleablePubKey()), ""))
+            strErrors << _("Cannot write default address") << "\n";
     }
 
     printf("%s", strErrors.str().c_str());
